@@ -26,14 +26,6 @@ fi;
 
 su -c "groupdel $TMUX_SHARED_GROUP"
 
-echo ""
-echo "Open /etc/ssh/sshd_config and remove the following lines (they should be at the end of the file):"
-echo ""
-cat <<EOF
-Match Group $TMUX_SHARED_GROUP
-	ForceCommand tmux-shared; exit
-EOF
-
-#SSHD_CONFIG=/etc/ssh/sshd_config
-#TMP_FILE=/tmp/edit_sshd_config
-#awk '/^# BEGIN SECTION of tmux-shared/ {delflag=1} !(delflag) {print;} /^# END SECTION of tmux-shared/ {delflag=0}' "$SSHD_CONFIG" > "$TMP_FILE" && mv "$TMP_FILE" "$SSHD_CONFIG"
+SSHD_CONFIG=/etc/ssh/sshd_config
+TMP_FILE=/tmp/edit_sshd_config
+awk '/^# BEGIN SECTION of tmux-shared/ {delflag=1} !(delflag) {print;} /^# END SECTION of tmux-shared/ {delflag=0}' "$SSHD_CONFIG" > "$TMP_FILE" && mv "$TMP_FILE" "$SSHD_CONFIG" && rm -f "$TMP_FILE"

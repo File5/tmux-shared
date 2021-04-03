@@ -30,8 +30,11 @@ su -c "chmod g+s $TMUX_SHARED_DIR"
 su -c "chmod 775 $TMUX_SHARED_DIR"
 
 su -c "cat <<EOF >> /etc/ssh/sshd_config
+# BEGIN SECTION of tmux-shared related ssh settings
+# DO NOT EDIT this section, DO NOT ADD any of your settings here
 Match Group $TMUX_SHARED_GROUP
 	ForceCommand tmux-shared; exit
+# END SECTION of tmux-shared related ssh settings
 EOF"
 su -c "systemctl restart sshd"
 
