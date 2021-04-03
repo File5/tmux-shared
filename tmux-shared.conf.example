@@ -5,6 +5,9 @@ TMUX_SHARED_DIR="/home/test"
 TMUX_SHARED_DELUSER_FLAGS=
 TMUX_SHARED_RM_SHARED_DIR=0
 
+# Folder where all tmux session start
+#TMUX_SHARED_START_DIR="$TMUX_SHARED_DIR"
+
 # delete-users config
 
 # Remove home directory of deleted users
