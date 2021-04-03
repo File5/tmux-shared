@@ -1,0 +1,15 @@
+TMUX_SHARED_GROUP=test
+TMUX_SHARED_USERS=(user1 user2 user3)
+TMUX_SHARED_DIR="/home/test"
+
+TMUX_SHARED_DELUSER_FLAGS=
+TMUX_SHARED_RM_SHARED_DIR=0
+
+# delete-users config
+
+# Remove home directory of deleted users
+#TMUX_SHARED_DELUSER_FLAGS='--remove-home'
+
+# Remove shared directory
+#TMUX_SHARED_RM_SHARED_DIR=1
+
